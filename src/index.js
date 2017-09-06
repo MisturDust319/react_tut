@@ -11,14 +11,6 @@ function Square(props) {
 }
 
 class Board extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      squares : Array(9).fill(null),
-      xIsNext: true,
-    };//creates array of 9 items set to null
-  }
-
   renderSquare(i) {
     return (<Square
       value={this.props.squares[i]}
