@@ -74,17 +74,18 @@ class Game extends React.Component {
     const current = history[history.length-1];
     const winner = calculateWinner(current.squares);
 
-    // eslint-disable-next-line
     const moves = history.map((step, move) => {
       const desc = move ?
         'Move #' + move :
         'Game Start';
       return (
           // eslint-disable-next-line
-          <a href="#" onClick={() =>
-            this.jumpTo(move)}>
-            {desc}
-          </a>
+          <li key={move}>
+            <a href="#" onClick={() =>
+              this.jumpTo(move)}>
+              {desc}
+            </a>
+          </li>
       );
     });
 
@@ -98,14 +99,14 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board 
+          <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
           />
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{/* TODO */}</ol>
+          <ol>{moves}</ol>
         </div>
       </div>
     );
